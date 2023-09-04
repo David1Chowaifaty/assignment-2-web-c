@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stencil Component Starter</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -20,13 +20,20 @@
 </head>
 
 <body>
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-    </div>
-    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  <ir-checkbox checkbox-style="form-check-input" input-id="inputGroup-sizing-sm" label-style="form-check-label"
+    label="Dance" class="form-group form-check" disabled="false" />
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <ir-checkbox />
+  <p></p>
+  <script>
+    const checkbox = document.querySelector('ir-checkbox');
+    const p = document.querySelector('p')
+    checkbox.addEventListener('oncheckchange', (e) => {
+      p.innerHTML = e.detail
+    })
+  </script>
 </body>
 
 </html>

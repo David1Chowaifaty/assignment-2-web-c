@@ -7,7 +7,18 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IrCheckbox {
+        "checkboxStyle": string;
+        "checked": boolean;
+        "containerStyle": string;
+        "disabled": boolean;
+        "inputId": string;
+        "label": string;
+        "labelStyle": string;
     }
+}
+export interface IrCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrCheckboxElement;
 }
 declare global {
     interface HTMLIrCheckboxElement extends Components.IrCheckbox, HTMLStencilElement {
@@ -22,6 +33,14 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IrCheckbox {
+        "checkboxStyle"?: string;
+        "checked"?: boolean;
+        "containerStyle"?: string;
+        "disabled"?: boolean;
+        "inputId"?: string;
+        "label"?: string;
+        "labelStyle"?: string;
+        "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
     interface IntrinsicElements {
         "ir-checkbox": IrCheckbox;
