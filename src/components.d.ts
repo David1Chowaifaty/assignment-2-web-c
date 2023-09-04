@@ -8,6 +8,20 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IrCheckbox {
     }
+    interface IrInput {
+        "containerStyle": string;
+        "id": string;
+        "inputStyle": string;
+        "label": string;
+        "labelStyle": string;
+        "placeholder": string;
+        "type": string;
+        "value": string;
+    }
+}
+export interface IrInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrInputElement;
 }
 declare global {
     interface HTMLIrCheckboxElement extends Components.IrCheckbox, HTMLStencilElement {
@@ -16,15 +30,34 @@ declare global {
         prototype: HTMLIrCheckboxElement;
         new (): HTMLIrCheckboxElement;
     };
+    interface HTMLIrInputElement extends Components.IrInput, HTMLStencilElement {
+    }
+    var HTMLIrInputElement: {
+        prototype: HTMLIrInputElement;
+        new (): HTMLIrInputElement;
+    };
     interface HTMLElementTagNameMap {
         "ir-checkbox": HTMLIrCheckboxElement;
+        "ir-input": HTMLIrInputElement;
     }
 }
 declare namespace LocalJSX {
     interface IrCheckbox {
     }
+    interface IrInput {
+        "containerStyle"?: string;
+        "id"?: string;
+        "inputStyle"?: string;
+        "label"?: string;
+        "labelStyle"?: string;
+        "onOntextchange"?: (event: IrInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "type"?: string;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "ir-checkbox": IrCheckbox;
+        "ir-input": IrInput;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +65,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
+            "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
         }
     }
 }
