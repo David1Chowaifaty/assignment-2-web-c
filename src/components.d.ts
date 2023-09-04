@@ -15,10 +15,22 @@ export namespace Components {
         "label": string;
         "labelStyle": string;
     }
+    interface IrSelect {
+        "data": string;
+        "disabled": boolean;
+        "selectName": string;
+        "selectStyle": string;
+        "selectTitle": string;
+        "selectedItem": string;
+    }
 }
 export interface IrCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIrCheckboxElement;
+}
+export interface IrSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrSelectElement;
 }
 declare global {
     interface HTMLIrCheckboxElement extends Components.IrCheckbox, HTMLStencilElement {
@@ -27,8 +39,15 @@ declare global {
         prototype: HTMLIrCheckboxElement;
         new (): HTMLIrCheckboxElement;
     };
+    interface HTMLIrSelectElement extends Components.IrSelect, HTMLStencilElement {
+    }
+    var HTMLIrSelectElement: {
+        prototype: HTMLIrSelectElement;
+        new (): HTMLIrSelectElement;
+    };
     interface HTMLElementTagNameMap {
         "ir-checkbox": HTMLIrCheckboxElement;
+        "ir-select": HTMLIrSelectElement;
     }
 }
 declare namespace LocalJSX {
@@ -42,8 +61,18 @@ declare namespace LocalJSX {
         "labelStyle"?: string;
         "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
+    interface IrSelect {
+        "data"?: string;
+        "disabled"?: boolean;
+        "onOnselectchange"?: (event: IrSelectCustomEvent<string>) => void;
+        "selectName"?: string;
+        "selectStyle"?: string;
+        "selectTitle"?: string;
+        "selectedItem"?: string;
+    }
     interface IntrinsicElements {
         "ir-checkbox": IrCheckbox;
+        "ir-select": IrSelect;
     }
 }
 export { LocalJSX as JSX };
@@ -51,6 +80,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
+            "ir-select": LocalJSX.IrSelect & JSXBase.HTMLAttributes<HTMLIrSelectElement>;
         }
     }
 }
