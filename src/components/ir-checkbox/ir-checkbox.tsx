@@ -13,7 +13,7 @@ export class IrCheckbox {
   @Prop({ reflect: true }) labelStyle: string;
   @Prop({ reflect: true }) containerStyle: string;
   @Prop({ reflect: true, mutable: true }) checked: boolean;
-  @Event() oncheckchange: EventEmitter<boolean>;
+  @Event({ bubbles: true, composed: true }) oncheckchange: EventEmitter<boolean>;
 
   @State() labelShown: boolean = false;
   componentWillLoad() {
