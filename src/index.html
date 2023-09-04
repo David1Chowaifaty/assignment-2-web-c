@@ -28,12 +28,129 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
+  <ir-select select-style="form-control"></ir-select>
   <script>
     const checkbox = document.querySelector('ir-checkbox');
+
     const p = document.querySelector('p')
+    const select = document.querySelector('ir-select')
+    const data = [{
+      optgrouplabel: "Alaskan/Hawaiian Time Zone",
+      options: [{
+        title: "Alaska",
+        value: "AK",
+      }, {
+        title: "Hawaii",
+        value: "HI",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "Pacific Time Zone",
+      options: [{
+        title: "California",
+        value: "CA",
+      }, {
+        title: "Nevada",
+        value: "NV",
+      },
+      {
+        title: "Oregon",
+        value: "OR",
+      },
+      {
+        title: "WA",
+        value: "Washington",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "Mountain Time Zone",
+      options: [{
+        title: "Arizona",
+        value: "AZ",
+      }, {
+        title: "Colorado",
+        value: "CO",
+      },
+      {
+        title: "Idaho",
+        value: "ID",
+      },
+      {
+        title: "Montana",
+        value: "MT",
+      },
+      {
+        title: "Nebraska",
+        value: "NE",
+      },
+      {
+        title: "New Mexica",
+        value: "NM",
+      },
+      {
+        title: "North Dakota",
+        value: "ND",
+      }, {
+        title: "Utah",
+        value: "UT",
+      }, {
+        title: "Wyaoming",
+        value: "WY",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "",
+      options: [{
+        title: "",
+        value: "",
+      }, {
+        title: "",
+        value: "",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "",
+      options: [{
+        title: "",
+        value: "",
+      }, {
+        title: "",
+        value: "",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "",
+      options: [{
+        title: "",
+        value: "",
+      }, {
+        title: "",
+        value: "",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "",
+      options: [{
+        title: "",
+        value: "",
+      }, {
+        title: "",
+        value: "",
+      },
+      ],
+    },]
+    select.data = JSON.stringify(data)
+
     checkbox.addEventListener('oncheckchange', (e) => {
       p.innerHTML = e.detail
     })
+
   </script>
 </body>
 

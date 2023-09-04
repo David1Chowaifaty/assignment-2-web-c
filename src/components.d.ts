@@ -16,11 +16,21 @@ export namespace Components {
         "labelStyle": string;
     }
     interface IrSelect {
+        "data": string;
+        "disabled": boolean;
+        "selectName": string;
+        "selectStyle": string;
+        "selectTitle": string;
+        "selectedItem": string;
     }
 }
 export interface IrCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIrCheckboxElement;
+}
+export interface IrSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrSelectElement;
 }
 declare global {
     interface HTMLIrCheckboxElement extends Components.IrCheckbox, HTMLStencilElement {
@@ -52,6 +62,13 @@ declare namespace LocalJSX {
         "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
     interface IrSelect {
+        "data"?: string;
+        "disabled"?: boolean;
+        "onOnselectchange"?: (event: IrSelectCustomEvent<string>) => void;
+        "selectName"?: string;
+        "selectStyle"?: string;
+        "selectTitle"?: string;
+        "selectedItem"?: string;
     }
     interface IntrinsicElements {
         "ir-checkbox": IrCheckbox;
