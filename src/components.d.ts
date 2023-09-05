@@ -17,11 +17,6 @@ export namespace Components {
     }
     interface IrSelect {
         "data": string;
-        "disabled": boolean;
-        "selectId": string;
-        "selectName": string;
-        "selectStyle": string;
-        "selectTitle": string;
         "selectedItem": string;
     }
 }
@@ -64,12 +59,7 @@ declare namespace LocalJSX {
     }
     interface IrSelect {
         "data"?: string;
-        "disabled"?: boolean;
         "onOnselectchange"?: (event: IrSelectCustomEvent<string>) => void;
-        "selectId"?: string;
-        "selectName"?: string;
-        "selectStyle"?: string;
-        "selectTitle"?: string;
         "selectedItem"?: string;
     }
     interface IntrinsicElements {

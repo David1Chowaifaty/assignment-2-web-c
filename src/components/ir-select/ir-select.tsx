@@ -7,53 +7,63 @@ import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } 
 })
 export class IrSelect {
   @Prop({ reflect: true }) data: string;
-  @Prop({ reflect: true }) selectName: string;
-  @Prop({ reflect: true }) selectStyle: string;
-  @Prop({ reflect: true }) selectTitle: string;
-  @Prop({ reflect: true }) disabled: boolean;
-  @Prop({ reflect: true }) selectId: string;
   @Prop({ reflect: true, mutable: true }) selectedItem: string;
   @State() selectData: SelectTypes[];
   @Event({ bubbles: true, composed: true }) onselectchange: EventEmitter<string>;
   @Element() el: HTMLElement;
   selectRef: HTMLSelectElement;
-  @State() parentStyles: string;
+  @State() parentAttributes: { name: string; value: string }[] = [];
+
   componentWillLoad() {
     this.setSelectData();
-    const styles = this.el.className;
-    this.parentStyles = styles;
-    this.el.removeAttribute('class');
+    Array.from(this.el.attributes).forEach(attribute => {
+      if (attribute.name !== 'data') {
+        this.parentAttributes.push({ name: attribute.name, value: attribute.value });
+        this.el.removeAttribute(attribute.name);
+      }
+    });
   }
+
   componentDidLoad() {
-    this.selectRef.className = this.parentStyles;
+    this.parentAttributes.forEach(attribute => {
+      this.selectRef.setAttribute(attribute.name, attribute.value);
+    });
   }
+
   @Watch('data')
-  handleDataChange() {
-    this.setSelectData();
-  }
-  setSelectData() {
-    if (this.data !== '') {
-      this.selectData = JSON.parse(this.data) as SelectTypes[];
+  handleDataChange(newValue: string, _oldValue: string) {
+    if (newValue !== _oldValue && newValue !== '') {
+      this.setSelectData();
     }
   }
+
+  setSelectData() {
+    try {
+      if (this.data && this.data.trim() !== '') {
+        this.selectData = JSON.parse(this.data) as SelectTypes[];
+      }
+    } catch (error) {
+      console.error('Error parsing JSON data:', error);
+    }
+  }
+
   onSelectChange(e: Event) {
     const selectedValue = (e.target as HTMLSelectElement).value;
     this.onselectchange.emit(selectedValue);
     this.selectedItem = selectedValue;
   }
+
   render() {
     return (
       <Host>
-        <select ref={el => (this.selectRef = el)} id={this.selectId} disabled={this.disabled} onChange={this.onSelectChange.bind(this)} title={this.selectTitle}>
-          {this.selectData.map(d => {
-            return (
-              <optgroup label={d.optgrouplabel}>
-                {d.options.map(option => (
-                  <option value={option.value}>{option.title}</option>
-                ))}
-              </optgroup>
-            );
-          })}
+        <select ref={el => (this.selectRef = el)} onChange={this.onSelectChange.bind(this)} title="select">
+          {this.selectData.map(d => (
+            <optgroup label={d.optgrouplabel}>
+              {d.options.map(option => (
+                <option value={option.value}>{option.title}</option>
+              ))}
+            </optgroup>
+          ))}
         </select>
       </Host>
     );

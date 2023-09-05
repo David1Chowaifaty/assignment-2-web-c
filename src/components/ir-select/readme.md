@@ -11,7 +11,6 @@
 | -------------- | --------------- | ----------- | --------- | ----------- |
 | `data`         | `data`          |             | `string`  | `undefined` |
 | `disabled`     | `disabled`      |             | `boolean` | `undefined` |
-| `selectId`     | `select-id`     |             | `string`  | `undefined` |
 | `selectName`   | `select-name`   |             | `string`  | `undefined` |
 | `selectStyle`  | `select-style`  |             | `string`  | `undefined` |
 | `selectTitle`  | `select-title`  |             | `string`  | `undefined` |

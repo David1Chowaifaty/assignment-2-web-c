@@ -28,7 +28,23 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <ir-select class="form-control"></ir-select>
+  <ir-select class="form-control" id="helloworld"></ir-select>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <optgroup label="Section 1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </optgroup>
+      <optgroup label="Section 2">
+        <option>4</option>
+        <option>5</option>
+      </optgroup>
+    </select>
+  </div>
   <script>
     const checkbox = document.querySelector('ir-checkbox');
 
@@ -101,50 +117,7 @@
       },
       ],
     },
-    {
-      optgrouplabel: "",
-      options: [{
-        title: "",
-        value: "",
-      }, {
-        title: "",
-        value: "",
-      },
-      ],
-    },
-    {
-      optgrouplabel: "",
-      options: [{
-        title: "",
-        value: "",
-      }, {
-        title: "",
-        value: "",
-      },
-      ],
-    },
-    {
-      optgrouplabel: "",
-      options: [{
-        title: "",
-        value: "",
-      }, {
-        title: "",
-        value: "",
-      },
-      ],
-    },
-    {
-      optgrouplabel: "",
-      options: [{
-        title: "",
-        value: "",
-      }, {
-        title: "",
-        value: "",
-      },
-      ],
-    },]
+    ]
     select.data = JSON.stringify(data)
 
     checkbox.addEventListener('oncheckchange', (e) => {
