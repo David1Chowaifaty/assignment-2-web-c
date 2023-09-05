@@ -3,128 +3,15 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
   <title>Stencil Component Starter</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+
   <script type="module" src="/build/ir-components.esm.js"></script>
   <script nomodule src="/build/ir-components.js"></script>
-  <style>
-    body {
-      padding: 16px;
-    }
-  </style>
 </head>
 
 <body>
-  <ir-checkbox checkbox-style="form-check-input" input-id="inputGroup-sizing-sm" label-style="form-check-label"
-    class="form-group form-check" disabled="false" label="Check me out"></ir-checkbox>
-  <br />
-  <p></p>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <ir-select class="form-control" id="helloworld"></ir-select>
-  <br>
-  <br>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <optgroup label="Section 1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </optgroup>
-      <optgroup label="Section 2">
-        <option>4</option>
-        <option>5</option>
-      </optgroup>
-    </select>
-  </div>
-  <script>
-    const checkbox = document.querySelector('ir-checkbox');
 
-    const p = document.querySelector('p')
-    const select = document.querySelector('ir-select')
-    const data = [{
-      optgrouplabel: "Alaskan/Hawaiian Time Zone",
-      options: [{
-        title: "Alaska",
-        value: "AK",
-      }, {
-        title: "Hawaii",
-        value: "HI",
-      },
-      ],
-    },
-    {
-      optgrouplabel: "Pacific Time Zone",
-      options: [{
-        title: "California",
-        value: "CA",
-      }, {
-        title: "Nevada",
-        value: "NV",
-      },
-      {
-        title: "Oregon",
-        value: "OR",
-      },
-      {
-        title: "WA",
-        value: "Washington",
-      },
-      ],
-    },
-    {
-      optgrouplabel: "Mountain Time Zone",
-      options: [{
-        title: "Arizona",
-        value: "AZ",
-      }, {
-        title: "Colorado",
-        value: "CO",
-      },
-      {
-        title: "Idaho",
-        value: "ID",
-      },
-      {
-        title: "Montana",
-        value: "MT",
-      },
-      {
-        title: "Nebraska",
-        value: "NE",
-      },
-      {
-        title: "New Mexica",
-        value: "NM",
-      },
-      {
-        title: "North Dakota",
-        value: "ND",
-      }, {
-        title: "Utah",
-        value: "UT",
-      }, {
-        title: "Wyaoming",
-        value: "WY",
-      },
-      ],
-    },
-    ]
-    select.data = JSON.stringify(data)
-
-    checkbox.addEventListener('oncheckchange', (e) => {
-      p.innerHTML = e.detail
-    })
-
-  </script>
 </body>
 
 </html>
