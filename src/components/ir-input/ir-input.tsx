@@ -40,7 +40,6 @@ export class IrInput {
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
         />
-        {this.visible && <p>{this.value}</p>}
       </Host>
     );
   }
