@@ -7,14 +7,10 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type      | Default     |
-| -------------- | --------------- | ----------- | --------- | ----------- |
-| `data`         | `data`          |             | `string`  | `undefined` |
-| `disabled`     | `disabled`      |             | `boolean` | `undefined` |
-| `selectName`   | `select-name`   |             | `string`  | `undefined` |
-| `selectStyle`  | `select-style`  |             | `string`  | `undefined` |
-| `selectTitle`  | `select-title`  |             | `string`  | `undefined` |
-| `selectedItem` | `selected-item` |             | `string`  | `undefined` |
+| Property       | Attribute       | Description | Type     | Default     |
+| -------------- | --------------- | ----------- | -------- | ----------- |
+| `data`         | `data`          |             | `string` | `undefined` |
+| `selectedItem` | `selected-item` |             | `string` | `undefined` |
 
 
 ## Events

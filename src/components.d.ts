@@ -17,7 +17,7 @@ export namespace Components {
     }
     interface IrInput {
         "containerStyle": string;
-        "id": string;
+        "inputId": string;
         "inputStyle": string;
         "label": string;
         "labelStyle": string;
@@ -80,7 +80,7 @@ declare namespace LocalJSX {
     }
     interface IrInput {
         "containerStyle"?: string;
-        "id"?: string;
+        "inputId"?: string;
         "inputStyle"?: string;
         "label"?: string;
         "labelStyle"?: string;
