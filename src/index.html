@@ -1,14 +1,92 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/ir-components.esm.js"></script>
-    <script nomodule src="/build/ir-components.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Stencil Component Starter</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script type="module" src="/build/ir-components.esm.js"></script>
+  <script nomodule src="/build/ir-components.js"></script>
+</head>
+
+<body>
+
+  <ir-select class="select2 form-control" id="responsive_single"></ir-select>
+  <script>
+    const select = document.querySelector('ir-select')
+    const data = [{
+      optgrouplabel: "Alaskan/Hawaiian Time Zone",
+      options: [{
+        title: "Alaska",
+        value: "AK",
+      }, {
+        title: "Hawaii",
+        value: "HI",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "Pacific Time Zone",
+      options: [{
+        title: "California",
+        value: "CA",
+      }, {
+        title: "Nevada",
+        value: "NV",
+      },
+      {
+        title: "Oregon",
+        value: "OR",
+      },
+      {
+        title: "WA",
+        value: "Washington",
+      },
+      ],
+    },
+    {
+      optgrouplabel: "Mountain Time Zone",
+      options: [{
+        title: "Arizona",
+        value: "AZ",
+      }, {
+        title: "Colorado",
+        value: "CO",
+      },
+      {
+        title: "Idaho",
+        value: "ID",
+      },
+      {
+        title: "Montana",
+        value: "MT",
+      },
+      {
+        title: "Nebraska",
+        value: "NE",
+      },
+      {
+        title: "New Mexica",
+        value: "NM",
+      },
+      {
+        title: "North Dakota",
+        value: "ND",
+      }, {
+        title: "Utah",
+        value: "UT",
+      }, {
+        title: "Wyaoming",
+        value: "WY",
+      },
+      ],
+    },
+    ]
+    select.data = JSON.stringify(data)
+  </script>
+</body>
+
 </html>

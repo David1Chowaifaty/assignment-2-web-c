@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ir-select renders correctly with data 1`] = `
+<ir-select data="[{&quot;optgrouplabel&quot;:&quot;Alaskan/Hawaiian Time Zone&quot;,&quot;options&quot;:[{&quot;title&quot;:&quot;Alaska&quot;,&quot;value&quot;:&quot;AK&quot;},{&quot;title&quot;:&quot;Hawaii&quot;,&quot;value&quot;:&quot;HI&quot;}]},{&quot;optgrouplabel&quot;:&quot;Pacific Time Zone&quot;,&quot;options&quot;:[{&quot;title&quot;:&quot;California&quot;,&quot;value&quot;:&quot;CA&quot;},{&quot;title&quot;:&quot;Nevada&quot;,&quot;value&quot;:&quot;NV&quot;},{&quot;title&quot;:&quot;Oregon&quot;,&quot;value&quot;:&quot;OR&quot;},{&quot;title&quot;:&quot;WA&quot;,&quot;value&quot;:&quot;Washington&quot;}]},{&quot;optgrouplabel&quot;:&quot;Mountain Time Zone&quot;,&quot;options&quot;:[{&quot;title&quot;:&quot;Arizona&quot;,&quot;value&quot;:&quot;AZ&quot;},{&quot;title&quot;:&quot;Colorado&quot;,&quot;value&quot;:&quot;CO&quot;},{&quot;title&quot;:&quot;Idaho&quot;,&quot;value&quot;:&quot;ID&quot;},{&quot;title&quot;:&quot;Montana&quot;,&quot;value&quot;:&quot;MT&quot;},{&quot;title&quot;:&quot;Nebraska&quot;,&quot;value&quot;:&quot;NE&quot;},{&quot;title&quot;:&quot;New Mexica&quot;,&quot;value&quot;:&quot;NM&quot;},{&quot;title&quot;:&quot;North Dakota&quot;,&quot;value&quot;:&quot;ND&quot;},{&quot;title&quot;:&quot;Utah&quot;,&quot;value&quot;:&quot;UT&quot;},{&quot;title&quot;:&quot;Wyaoming&quot;,&quot;value&quot;:&quot;WY&quot;}]}]" select-title="Select an option">
+  <select title="Select an option">
+    <optgroup label="Alaskan/Hawaiian Time Zone">
+      <option value="AK">
+        Alaska
+      </option>
+      <option value="HI">
+        Hawaii
+      </option>
+    </optgroup>
+    <optgroup label="Pacific Time Zone">
+      <option value="CA">
+        California
+      </option>
+      <option value="NV">
+        Nevada
+      </option>
+      <option value="OR">
+        Oregon
+      </option>
+      <option value="Washington">
+        WA
+      </option>
+    </optgroup>
+    <optgroup label="Mountain Time Zone">
+      <option value="AZ">
+        Arizona
+      </option>
+      <option value="CO">
+        Colorado
+      </option>
+      <option value="ID">
+        Idaho
+      </option>
+      <option value="MT">
+        Montana
+      </option>
+      <option value="NE">
+        Nebraska
+      </option>
+      <option value="NM">
+        New Mexica
+      </option>
+      <option value="ND">
+        North Dakota
+      </option>
+      <option value="UT">
+        Utah
+      </option>
+      <option value="WY">
+        Wyaoming
+      </option>
+    </optgroup>
+  </select>
+</ir-select>
+`;
