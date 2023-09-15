@@ -28,7 +28,11 @@
   "dependencies": {
     "@stencil/core": "^4.0.0",
     "@types/jquery": "^3.5.18",
-    "@types/select2": "^4.0.58"
+    "@types/select2": "^4.0.58",
+    "bootstrap-switch": "^3.4.0",
+    "jquery": "^3.7.1",
+    "select2": "4.1.0-rc.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",

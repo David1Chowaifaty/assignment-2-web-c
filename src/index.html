@@ -4,83 +4,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Stencil Component Starter</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <text>Stencil Component Starter</text>
+  <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
   <script type="module" src="/build/ir-components.esm.js"></script>
   <script nomodule src="/build/ir-components.js"></script>
+  <style>
+    .separator {
+      height: 2vh;
+      background: #000;
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>
 
-  <ir-select class="select2 form-control" id="responsive_single"></ir-select>
+  <ir-select id="responsive_single"></ir-select>
+  <div class="separator"></div>
+  <ir-switch component-id="sw1"></ir-switch>
   <script>
     const select = document.querySelector('ir-select')
     const data = [{
-      optgrouplabel: "Alaskan/Hawaiian Time Zone",
-      options: [{
-        title: "Alaska",
-        value: "AK",
+      text: "Alaskan/Hawaiian Time Zone",
+      children: [{
+        text: "Alaska",
+        id: "AK",
       }, {
-        title: "Hawaii",
-        value: "HI",
+        text: "Hawaii",
+        id: "HI",
       },
       ],
     },
     {
-      optgrouplabel: "Pacific Time Zone",
-      options: [{
-        title: "California",
-        value: "CA",
+      text: "Pacific Time Zone",
+      children: [{
+        text: "California",
+        id: "CA",
       }, {
-        title: "Nevada",
-        value: "NV",
+        text: "Nevada",
+        id: "NV",
       },
       {
-        title: "Oregon",
-        value: "OR",
+        text: "Oregon",
+        id: "OR",
       },
       {
-        title: "WA",
-        value: "Washington",
+        text: "WA",
+        id: "Washington",
       },
       ],
     },
     {
-      optgrouplabel: "Mountain Time Zone",
-      options: [{
-        title: "Arizona",
-        value: "AZ",
+      text: "Mountain Time Zone",
+      children: [{
+        text: "Arizona",
+        id: "AZ",
       }, {
-        title: "Colorado",
-        value: "CO",
+        text: "Colorado",
+        id: "CO",
       },
       {
-        title: "Idaho",
-        value: "ID",
+        text: "Idaho",
+        id: "ID",
       },
       {
-        title: "Montana",
-        value: "MT",
+        text: "Montana",
+        id: "MT",
       },
       {
-        title: "Nebraska",
-        value: "NE",
+        text: "Nebraska",
+        id: "NE",
       },
       {
-        title: "New Mexica",
-        value: "NM",
+        text: "New Mexica",
+        id: "NM",
       },
       {
-        title: "North Dakota",
-        value: "ND",
+        text: "North Dakota",
+        id: "ND",
       }, {
-        title: "Utah",
-        value: "UT",
+        text: "Utah",
+        id: "UT",
       }, {
-        title: "Wyaoming",
-        value: "WY",
+        text: "Wyaoming",
+        id: "WY",
       },
       ],
     },

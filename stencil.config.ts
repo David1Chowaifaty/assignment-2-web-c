@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'ir-components',
+  globalScript: 'node_modules/select2/dist/js/select2.js',
   outputTargets: [
     {
       type: 'dist',
@@ -18,6 +19,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+
   testing: {
     browserHeadless: 'new',
   },

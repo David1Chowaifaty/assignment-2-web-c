@@ -1,4 +1,8 @@
 import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
+import $ from 'jquery';
+import { GroupedDataFormat } from 'select2';
+import 'select2/dist/css/select2.min.css';
+
 @Component({
   tag: 'ir-select',
   styleUrl: 'ir-select.css',
@@ -7,22 +11,18 @@ import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } 
 export class IrSelect {
   @Prop({ reflect: true }) data: string;
   @Prop({ reflect: true, mutable: true }) selectedItem: string;
-  @State() selectData: SelectTypes[] = [];
+  @State() selectData: GroupedDataFormat[] = [];
   @Event({ bubbles: true, composed: true }) onselectchange: EventEmitter<string>;
   @Element() el: HTMLElement;
   selectRef: HTMLSelectElement;
-
   componentWillLoad() {
     this.parseData();
     this.moveAttributesToSelectElement();
   }
 
   componentDidLoad() {
+    // console.log($, Select2);
     this.initializeSelect2();
-  }
-
-  disconnectedCallback() {
-    this.destroySelect2();
   }
 
   @Watch('data')
@@ -34,7 +34,7 @@ export class IrSelect {
 
   private parseData() {
     try {
-      this.selectData = JSON.parse(this.data) as SelectTypes[];
+      this.selectData = JSON.parse(this.data) as GroupedDataFormat[];
     } catch (error) {
       console.error('Error parsing JSON data:', error);
     }
@@ -50,16 +50,15 @@ export class IrSelect {
   }
 
   private initializeSelect2() {
-    $(this.selectRef).select2();
+    $(this.selectRef).select2({
+      data: this.selectData,
+    });
     $(this.selectRef).on('change', e => {
       const selectedValue = $(e.target).val().toString();
+      console.log(selectedValue);
       this.onselectchange.emit(selectedValue);
       this.selectedItem = selectedValue;
     });
-  }
-
-  private destroySelect2() {
-    $(this.selectRef).select2('destroy');
   }
 
   onSelectChange(e: Event) {
@@ -71,15 +70,19 @@ export class IrSelect {
   render() {
     return (
       <Host>
-        <select ref={el => (this.selectRef = el as HTMLSelectElement)} title="select">
-          {this.selectData.map(d => (
+        <div class={'form-group'}>
+          <div class="input-group row m-0">
+            <select ref={el => (this.selectRef = el as HTMLSelectElement)} title="select" class={'select2-container form-control'}>
+              {/* {this.selectData.map(d => (
             <optgroup label={d.optgrouplabel}>
               {d.options.map(option => (
                 <option value={option.value}>{option.title}</option>
               ))}
             </optgroup>
-          ))}
-        </select>
+          ))} */}
+            </select>{' '}
+          </div>
+        </div>
       </Host>
     );
   }
