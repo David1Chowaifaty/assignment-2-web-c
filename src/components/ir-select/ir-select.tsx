@@ -1,89 +1,71 @@
-import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
-import $ from 'jquery';
-import { GroupedDataFormat } from 'select2';
-import 'select2/dist/css/select2.min.css';
+import { Component, Event, EventEmitter, Prop, State, Watch, h } from '@stencil/core';
+import { v4 } from 'uuid';
+//import $ from 'jquery';
+//import 'select2';
+import { DataFormat, GroupedDataFormat } from 'select2';
 
 @Component({
   tag: 'ir-select',
-  styleUrl: 'ir-select.css',
   shadow: false,
 })
 export class IrSelect {
-  @Prop({ reflect: true }) data: string;
+  @Prop({ reflect: true }) data: string | DataFormat[] | GroupedDataFormat[];
   @Prop({ reflect: true, mutable: true }) selectedItem: string;
-  @State() selectData: GroupedDataFormat[] = [];
+  @Prop({ reflect: true }) selectStyle: string;
+  @State() selectData: DataFormat[] | GroupedDataFormat[] = [];
   @Event({ bubbles: true, composed: true }) onselectchange: EventEmitter<string>;
-  @Element() el: HTMLElement;
-  selectRef: HTMLSelectElement;
-  componentWillLoad() {
+
+  private selectId = v4();
+  private testElement: JQuery;
+
+  componentWillLoad(): void {
     this.parseData();
-    this.moveAttributesToSelectElement();
   }
 
-  componentDidLoad() {
-    // console.log($, Select2);
+  componentDidLoad(): void {
+    this.testElement = $(`#${this.selectId}`);
     this.initializeSelect2();
   }
 
   @Watch('data')
-  handleDataChange(newValue: string) {
+  handleDataChange(newValue: string): void {
     if (newValue && newValue.trim() !== '') {
       this.parseData();
     }
   }
 
-  private parseData() {
-    try {
-      this.selectData = JSON.parse(this.data) as GroupedDataFormat[];
-    } catch (error) {
-      console.error('Error parsing JSON data:', error);
+  private parseData(): void {
+    if (typeof this.data === 'string') {
+      try {
+        this.selectData = JSON.parse(this.data);
+      } catch (error) {
+        console.error(`Error parsing JSON data: ${error}`);
+      }
+    } else {
+      this.selectData = this.data;
     }
   }
 
-  private moveAttributesToSelectElement() {
-    Array.from(this.el.attributes).forEach(attribute => {
-      if (attribute.name !== 'data') {
-        this.selectRef?.setAttribute(attribute.name, attribute.value);
-        this.el.removeAttribute(attribute.name);
-      }
-    });
-  }
+  private initializeSelect2(): void {
+    if (!this.testElement || !this.testElement.length) {
+      console.warn('Element not found');
+      return;
+    }
 
-  private initializeSelect2() {
-    $(this.selectRef).select2({
+    this.testElement.select2({
       data: this.selectData,
     });
-    $(this.selectRef).on('change', e => {
-      const selectedValue = $(e.target).val().toString();
-      console.log(selectedValue);
-      this.onselectchange.emit(selectedValue);
-      this.selectedItem = selectedValue;
-    });
+
+    this.testElement.on('select2:select', this.handleSelect);
   }
 
-  onSelectChange(e: Event) {
-    const selectedValue = (e.target as HTMLSelectElement).value;
+  private handleSelect = (event: any): void => {
+    const selectedValue = event.params.data.id;
     this.onselectchange.emit(selectedValue);
     this.selectedItem = selectedValue;
-  }
+  };
 
   render() {
-    return (
-      <Host>
-        <div class={'form-group'}>
-          <div class="input-group row m-0">
-            <select ref={el => (this.selectRef = el as HTMLSelectElement)} title="select" class={'select2-container form-control'}>
-              {/* {this.selectData.map(d => (
-            <optgroup label={d.optgrouplabel}>
-              {d.options.map(option => (
-                <option value={option.value}>{option.title}</option>
-              ))}
-            </optgroup>
-          ))} */}
-            </select>{' '}
-          </div>
-        </div>
-      </Host>
-    );
+    return <select id={this.selectId} title="select" class={`select2 ${this.selectStyle}`}></select>;
   }
 }

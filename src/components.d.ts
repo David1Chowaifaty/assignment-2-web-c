@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { DataFormat, GroupedDataFormat } from "select2";
+export { DataFormat, GroupedDataFormat } from "select2";
 export namespace Components {
     interface IrCheckbox {
         "checkboxStyle": string;
@@ -26,7 +28,8 @@ export namespace Components {
         "value": string;
     }
     interface IrSelect {
-        "data": string;
+        "data": string | DataFormat[] | GroupedDataFormat[];
+        "selectStyle": string;
         "selectedItem": string;
     }
     interface IrSwitch {
@@ -122,8 +125,9 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IrSelect {
-        "data"?: string;
+        "data"?: string | DataFormat[] | GroupedDataFormat[];
         "onOnselectchange"?: (event: IrSelectCustomEvent<string>) => void;
+        "selectStyle"?: string;
         "selectedItem"?: string;
     }
     interface IrSwitch {

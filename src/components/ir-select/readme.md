@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type     | Default     |
-| -------------- | --------------- | ----------- | -------- | ----------- |
-| `data`         | `data`          |             | `string` | `undefined` |
-| `selectedItem` | `selected-item` |             | `string` | `undefined` |
+| Property       | Attribute       | Description | Type                                            | Default     |
+| -------------- | --------------- | ----------- | ----------------------------------------------- | ----------- |
+| `data`         | `data`          |             | `DataFormat[] \| GroupedDataFormat[] \| string` | `undefined` |
+| `selectStyle`  | `select-style`  |             | `string`                                        | `undefined` |
+| `selectedItem` | `selected-item` |             | `string`                                        | `undefined` |
 
 
 ## Events

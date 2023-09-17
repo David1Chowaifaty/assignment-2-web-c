@@ -1,9 +1,9 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { v4 as uuidv4 } from 'uuid';
-import 'jquery';
-import $ from 'jquery';
-import 'bootstrap-switch';
-import 'bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css';
+// import 'jquery';
+// import $ from 'jquery';
+// import 'bootstrap-switch';
+// import 'bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css';
 //import './jquery-extensions';
 
 @Component({

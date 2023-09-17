@@ -21,5 +21,6 @@ interface JQueryBootstrapSwitchOptions {
 }
 
 interface JQuery<TElement = HTMLElement> {
-  bootstrapSwitch(options?: JQueryBootstrapSwitchOptions): JQuery<TElement>;
+  //bootstrapSwitch(options?: JQueryBootstrapSwitchOptions): JQuery<TElement>;
+  bootstrapSwitch(): JQuery<TElement>;
 }
