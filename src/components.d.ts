@@ -28,15 +28,11 @@ export namespace Components {
         "labelStyle": string;
     }
     interface IrInput {
-        "containerStyle": string;
-        "divicon": string;
         "icon": string;
         "inputId": string;
-        "inputStyle": string;
-        "inputcontainer": string;
         "label": string;
-        "labelStyle": string;
         "placeholder": string;
+        "required": boolean;
         "type": string;
         "value": string;
     }
@@ -158,16 +154,12 @@ declare namespace LocalJSX {
         "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
     interface IrInput {
-        "containerStyle"?: string;
-        "divicon"?: string;
         "icon"?: string;
         "inputId"?: string;
-        "inputStyle"?: string;
-        "inputcontainer"?: string;
         "label"?: string;
-        "labelStyle"?: string;
         "onOntextchange"?: (event: IrInputCustomEvent<string>) => void;
         "placeholder"?: string;
+        "required"?: boolean;
         "type"?: string;
         "value"?: string;
     }
