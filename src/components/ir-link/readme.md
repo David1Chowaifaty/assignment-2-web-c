@@ -18,11 +18,13 @@
 ### Used by
 
  - [ir-login](../ir-login)
+ - [ir-register](../ir-register)
 
 ### Graph
 ```mermaid
 graph TD;
   ir-login --> ir-link
+  ir-register --> ir-link
   style ir-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

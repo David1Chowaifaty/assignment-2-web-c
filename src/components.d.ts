@@ -50,6 +50,8 @@ export namespace Components {
     }
     interface IrLogin {
     }
+    interface IrRegister {
+    }
     interface IrSelect {
         "data": string | DataFormat[] | GroupedDataFormat[];
         "selectStyle": string;
@@ -148,6 +150,12 @@ declare global {
         prototype: HTMLIrLoginElement;
         new (): HTMLIrLoginElement;
     };
+    interface HTMLIrRegisterElement extends Components.IrRegister, HTMLStencilElement {
+    }
+    var HTMLIrRegisterElement: {
+        prototype: HTMLIrRegisterElement;
+        new (): HTMLIrRegisterElement;
+    };
     interface HTMLIrSelectElement extends Components.IrSelect, HTMLStencilElement {
     }
     var HTMLIrSelectElement: {
@@ -173,6 +181,7 @@ declare global {
         "ir-input": HTMLIrInputElement;
         "ir-link": HTMLIrLinkElement;
         "ir-login": HTMLIrLoginElement;
+        "ir-register": HTMLIrRegisterElement;
         "ir-select": HTMLIrSelectElement;
         "ir-sidebar": HTMLIrSidebarElement;
         "ir-switch": HTMLIrSwitchElement;
@@ -223,6 +232,8 @@ declare namespace LocalJSX {
     interface IrLogin {
         "onLoginClicked"?: (event: IrLoginCustomEvent<ILogin>) => void;
     }
+    interface IrRegister {
+    }
     interface IrSelect {
         "data"?: string | DataFormat[] | GroupedDataFormat[];
         "onOnselectchange"?: (event: IrSelectCustomEvent<string>) => void;
@@ -264,6 +275,7 @@ declare namespace LocalJSX {
         "ir-input": IrInput;
         "ir-link": IrLink;
         "ir-login": IrLogin;
+        "ir-register": IrRegister;
         "ir-select": IrSelect;
         "ir-sidebar": IrSidebar;
         "ir-switch": IrSwitch;
@@ -279,6 +291,7 @@ declare module "@stencil/core" {
             "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
             "ir-link": LocalJSX.IrLink & JSXBase.HTMLAttributes<HTMLIrLinkElement>;
             "ir-login": LocalJSX.IrLogin & JSXBase.HTMLAttributes<HTMLIrLoginElement>;
+            "ir-register": LocalJSX.IrRegister & JSXBase.HTMLAttributes<HTMLIrRegisterElement>;
             "ir-select": LocalJSX.IrSelect & JSXBase.HTMLAttributes<HTMLIrSelectElement>;
             "ir-sidebar": LocalJSX.IrSidebar & JSXBase.HTMLAttributes<HTMLIrSidebarElement>;
             "ir-switch": LocalJSX.IrSwitch & JSXBase.HTMLAttributes<HTMLIrSwitchElement>;

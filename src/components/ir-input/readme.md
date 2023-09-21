@@ -31,11 +31,13 @@
 ### Used by
 
  - [ir-login](../ir-login)
+ - [ir-register](../ir-register)
 
 ### Graph
 ```mermaid
 graph TD;
   ir-login --> ir-input
+  ir-register --> ir-input
   style ir-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
