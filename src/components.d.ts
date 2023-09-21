@@ -29,8 +29,11 @@ export namespace Components {
     }
     interface IrInput {
         "containerStyle": string;
+        "divicon": string;
+        "icon": string;
         "inputId": string;
         "inputStyle": string;
+        "inputcontainer": string;
         "label": string;
         "labelStyle": string;
         "placeholder": string;
@@ -156,8 +159,11 @@ declare namespace LocalJSX {
     }
     interface IrInput {
         "containerStyle"?: string;
+        "divicon"?: string;
+        "icon"?: string;
         "inputId"?: string;
         "inputStyle"?: string;
+        "inputcontainer"?: string;
         "label"?: string;
         "labelStyle"?: string;
         "onOntextchange"?: (event: IrInputCustomEvent<string>) => void;
