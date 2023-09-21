@@ -14,7 +14,7 @@
 | `colorVariant` | `color-variant` |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 | `glow`         | `glow`          |             | `boolean`                                                                                       | `undefined` |
 | `icon`         | `icon`          |             | `string`                                                                                        | `''`        |
-| `shadow`       | `shadow`        |             | `"0" \| "1" \| "2" \| "3" \| "4" \| "5"`                                                        | `'0'`       |
+| `shadow`       | `shadow`        |             | `"" \| "1" \| "2" \| "3" \| "4" \| "5"`                                                         | `''`        |
 | `shapeVariant` | `shape-variant` |             | `"default" \| "outline" \| "round" \| "square"`                                                 | `'default'` |
 | `type`         | `type`          |             | `"button" \| "reset" \| "submit"`                                                               | `'button'`  |
 

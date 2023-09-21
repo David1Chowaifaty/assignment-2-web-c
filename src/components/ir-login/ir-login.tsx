@@ -25,35 +25,18 @@ export class IrLogin {
 
                     <div class="card-content">
                       <div class="card-body">
-                        <form class="form-horizontal form-simple" action="index.html" novalidate>
-                          <fieldset class="form-group position-relative has-icon-left mb-0">
-                            <input type="text" class="form-control" id="user-name" placeholder="Your Username" required />
-                            <div class="form-control-position">
-                              <i class="la la-user"></i>
-                            </div>
-                          </fieldset>
-
-                          <fieldset class="form-group position-relative has-icon-left">
-                            <input type="password" class="form-control" id="user-password" placeholder="Enter Password" required />
-                            <div class="form-control-position">
-                              <i class="la la-key"></i>
-                            </div>
-                          </fieldset>
-
+                        <form class="form-horizontal form-simple" novalidate>
+                          <ir-input type="text" icon="la la-user" placeholder="Your Username" required container-style="mb-0" />
+                          <ir-input type="password" icon="la la-key" placeholder="Enter Password" required />
                           <div class="form-group row">
-                            <div class="col-sm-6 col-12 text-center text-sm-left">
-                              <fieldset>
-                                <input type="checkbox" id="remember-me" class="chk-remember" />
-                                <label htmlFor="remember-me"> Remember Me</label>
-                              </fieldset>
-                            </div>
+                            <ir-checkbox class="col-sm-6 col-12 text-center text-sm-left" label=" Remember Me" input-id="remember-me" checkbox-style="chk-remember" />
                             <div class="col-sm-6 col-12 text-center text-sm-right">
                               <a href="recover-password.html" class="card-link">
                                 Forgot Password?
                               </a>
                             </div>
                           </div>
-                          <ir-button type="submit" icon="ft-unlock" buttonStyle="btn-block" buttonTitle=" Login"></ir-button>
+                          <ir-button class="btn-block" type="submit" icon="ft-unlock" button-style="btn-block" button-title=" Login" color-variant="info" />
                         </form>
                       </div>
                     </div>

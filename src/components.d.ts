@@ -14,7 +14,7 @@ export namespace Components {
         "colorVariant": 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
         "glow": boolean;
         "icon": string;
-        "shadow": '0' | '1' | '2' | '3' | '4' | '5';
+        "shadow": '' | '1' | '2' | '3' | '4' | '5';
         "shapeVariant": 'default' | 'round' | 'square' | 'outline';
         "type": 'button' | 'submit' | 'reset';
     }
@@ -29,14 +29,11 @@ export namespace Components {
     }
     interface IrInput {
         "containerStyle": string;
-        "divicon": string;
         "icon": string;
         "inputId": string;
-        "inputStyle": string;
-        "inputcontainer": string;
         "label": string;
-        "labelStyle": string;
         "placeholder": string;
+        "required": boolean;
         "type": string;
         "value": string;
     }
@@ -143,7 +140,7 @@ declare namespace LocalJSX {
         "glow"?: boolean;
         "icon"?: string;
         "onButtonClicked"?: (event: IrButtonCustomEvent<any>) => void;
-        "shadow"?: '0' | '1' | '2' | '3' | '4' | '5';
+        "shadow"?: '' | '1' | '2' | '3' | '4' | '5';
         "shapeVariant"?: 'default' | 'round' | 'square' | 'outline';
         "type"?: 'button' | 'submit' | 'reset';
     }
@@ -159,15 +156,12 @@ declare namespace LocalJSX {
     }
     interface IrInput {
         "containerStyle"?: string;
-        "divicon"?: string;
         "icon"?: string;
         "inputId"?: string;
-        "inputStyle"?: string;
-        "inputcontainer"?: string;
         "label"?: string;
-        "labelStyle"?: string;
         "onOntextchange"?: (event: IrInputCustomEvent<string>) => void;
         "placeholder"?: string;
+        "required"?: boolean;
         "type"?: string;
         "value"?: string;
     }
