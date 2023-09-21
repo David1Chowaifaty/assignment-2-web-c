@@ -8,6 +8,16 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DataFormat, GroupedDataFormat } from "select2";
 export { DataFormat, GroupedDataFormat } from "select2";
 export namespace Components {
+    interface IrButton {
+        "buttonStyle": string;
+        "buttonTitle": string;
+        "colorVariant": 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
+        "glow": boolean;
+        "icon": string;
+        "shadow": '0' | '1' | '2' | '3' | '4' | '5';
+        "shapeVariant": 'default' | 'round' | 'square' | 'outline';
+        "type": 'button' | 'submit' | 'reset';
+    }
     interface IrCheckbox {
         "checkboxStyle": string;
         "checked": boolean;
@@ -54,6 +64,10 @@ export namespace Components {
         "wrapperClass"?: string;
     }
 }
+export interface IrButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrButtonElement;
+}
 export interface IrCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIrCheckboxElement;
@@ -71,6 +85,12 @@ export interface IrSwitchCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIrSwitchElement;
 }
 declare global {
+    interface HTMLIrButtonElement extends Components.IrButton, HTMLStencilElement {
+    }
+    var HTMLIrButtonElement: {
+        prototype: HTMLIrButtonElement;
+        new (): HTMLIrButtonElement;
+    };
     interface HTMLIrCheckboxElement extends Components.IrCheckbox, HTMLStencilElement {
     }
     var HTMLIrCheckboxElement: {
@@ -96,6 +116,7 @@ declare global {
         new (): HTMLIrSwitchElement;
     };
     interface HTMLElementTagNameMap {
+        "ir-button": HTMLIrButtonElement;
         "ir-checkbox": HTMLIrCheckboxElement;
         "ir-input": HTMLIrInputElement;
         "ir-select": HTMLIrSelectElement;
@@ -103,6 +124,17 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IrButton {
+        "buttonStyle"?: string;
+        "buttonTitle"?: string;
+        "colorVariant"?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
+        "glow"?: boolean;
+        "icon"?: string;
+        "onButtonClicked"?: (event: IrButtonCustomEvent<any>) => void;
+        "shadow"?: '0' | '1' | '2' | '3' | '4' | '5';
+        "shapeVariant"?: 'default' | 'round' | 'square' | 'outline';
+        "type"?: 'button' | 'submit' | 'reset';
+    }
     interface IrCheckbox {
         "checkboxStyle"?: string;
         "checked"?: boolean;
@@ -153,6 +185,7 @@ declare namespace LocalJSX {
         "wrapperClass"?: string;
     }
     interface IntrinsicElements {
+        "ir-button": IrButton;
         "ir-checkbox": IrCheckbox;
         "ir-input": IrInput;
         "ir-select": IrSelect;
@@ -163,6 +196,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ir-button": LocalJSX.IrButton & JSXBase.HTMLAttributes<HTMLIrButtonElement>;
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
             "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
             "ir-select": LocalJSX.IrSelect & JSXBase.HTMLAttributes<HTMLIrSelectElement>;
