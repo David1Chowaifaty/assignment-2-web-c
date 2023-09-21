@@ -10,8 +10,11 @@
 | Property         | Attribute         | Description | Type     | Default     |
 | ---------------- | ----------------- | ----------- | -------- | ----------- |
 | `containerStyle` | `container-style` |             | `string` | `undefined` |
+| `divicon`        | `divicon`         |             | `string` | `undefined` |
+| `icon`           | `icon`            |             | `string` | `undefined` |
 | `inputId`        | `input-id`        |             | `string` | `undefined` |
 | `inputStyle`     | `input-style`     |             | `string` | `undefined` |
+| `inputcontainer` | `inputcontainer`  |             | `string` | `undefined` |
 | `label`          | `label`           |             | `string` | `undefined` |
 | `labelStyle`     | `label-style`     |             | `string` | `undefined` |
 | `placeholder`    | `placeholder`     |             | `string` | `undefined` |
