@@ -37,6 +37,10 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IrLink {
+        "linkDestination": string;
+        "linkTitle": string;
+    }
     interface IrLogin {
     }
     interface IrSelect {
@@ -105,6 +109,12 @@ declare global {
         prototype: HTMLIrInputElement;
         new (): HTMLIrInputElement;
     };
+    interface HTMLIrLinkElement extends Components.IrLink, HTMLStencilElement {
+    }
+    var HTMLIrLinkElement: {
+        prototype: HTMLIrLinkElement;
+        new (): HTMLIrLinkElement;
+    };
     interface HTMLIrLoginElement extends Components.IrLogin, HTMLStencilElement {
     }
     var HTMLIrLoginElement: {
@@ -127,6 +137,7 @@ declare global {
         "ir-button": HTMLIrButtonElement;
         "ir-checkbox": HTMLIrCheckboxElement;
         "ir-input": HTMLIrInputElement;
+        "ir-link": HTMLIrLinkElement;
         "ir-login": HTMLIrLoginElement;
         "ir-select": HTMLIrSelectElement;
         "ir-switch": HTMLIrSwitchElement;
@@ -165,6 +176,10 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface IrLink {
+        "linkDestination"?: string;
+        "linkTitle"?: string;
+    }
     interface IrLogin {
     }
     interface IrSelect {
@@ -199,6 +214,7 @@ declare namespace LocalJSX {
         "ir-button": IrButton;
         "ir-checkbox": IrCheckbox;
         "ir-input": IrInput;
+        "ir-link": IrLink;
         "ir-login": IrLogin;
         "ir-select": IrSelect;
         "ir-switch": IrSwitch;
@@ -211,6 +227,7 @@ declare module "@stencil/core" {
             "ir-button": LocalJSX.IrButton & JSXBase.HTMLAttributes<HTMLIrButtonElement>;
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
             "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
+            "ir-link": LocalJSX.IrLink & JSXBase.HTMLAttributes<HTMLIrLinkElement>;
             "ir-login": LocalJSX.IrLogin & JSXBase.HTMLAttributes<HTMLIrLoginElement>;
             "ir-select": LocalJSX.IrSelect & JSXBase.HTMLAttributes<HTMLIrSelectElement>;
             "ir-switch": LocalJSX.IrSwitch & JSXBase.HTMLAttributes<HTMLIrSwitchElement>;
