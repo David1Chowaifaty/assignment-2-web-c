@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, Watch, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Fragment, Prop, Watch, h } from '@stencil/core';
 
 @Component({
   tag: 'ir-button',
@@ -9,7 +9,7 @@ export class IrButton {
   @Prop({ reflect: true }) icon: string = '';
   @Prop({ reflect: true }) buttonStyle: string = '';
   @Prop({ reflect: true }) colorVariant: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark' = 'primary';
-  @Prop({ reflect: true }) shadow: '0' | '1' | '2' | '3' | '4' | '5' = '0';
+  @Prop({ reflect: true }) shadow: '' | '1' | '2' | '3' | '4' | '5' = '';
   @Prop({ reflect: true }) glow: boolean;
   @Prop({ reflect: true }) shapeVariant: 'default' | 'round' | 'square' | 'outline' = 'default';
 
@@ -40,13 +40,17 @@ export class IrButton {
     this.buttonClicked.emit();
   }
   render() {
+    let shadow = '';
+    if (this.shadow !== '') {
+      shadow = `box-shadow-${this.shadow}`;
+    }
     return (
-      <button
-        type={this.type}
-        onClick={this.handleClick.bind(this)}
-        class={`btn btn-min-width ${this.applyButtonStyle()} box-shadow-${this.shadow} ${this.glow && 'btn-glow'} ${this.buttonStyle}`}
-      >
-        {this.icon !== '' && <i class={this.icon}></i>}
+      <button type={this.type} onClick={this.handleClick.bind(this)} class={`btn ${this.applyButtonStyle()} ${this.buttonStyle} ${shadow} ${this.glow ? 'btn-glow' : ''} `}>
+        {this.icon !== '' && (
+          <Fragment>
+            <i class={this.icon}></i>&nbsp;
+          </Fragment>
+        )}
         {this.buttonTitle}
       </button>
     );

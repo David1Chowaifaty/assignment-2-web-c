@@ -14,7 +14,7 @@ export namespace Components {
         "colorVariant": 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
         "glow": boolean;
         "icon": string;
-        "shadow": '0' | '1' | '2' | '3' | '4' | '5';
+        "shadow": '' | '1' | '2' | '3' | '4' | '5';
         "shapeVariant": 'default' | 'round' | 'square' | 'outline';
         "type": 'button' | 'submit' | 'reset';
     }
@@ -28,6 +28,7 @@ export namespace Components {
         "labelStyle": string;
     }
     interface IrInput {
+        "containerStyle": string;
         "icon": string;
         "inputId": string;
         "label": string;
@@ -139,7 +140,7 @@ declare namespace LocalJSX {
         "glow"?: boolean;
         "icon"?: string;
         "onButtonClicked"?: (event: IrButtonCustomEvent<any>) => void;
-        "shadow"?: '0' | '1' | '2' | '3' | '4' | '5';
+        "shadow"?: '' | '1' | '2' | '3' | '4' | '5';
         "shapeVariant"?: 'default' | 'round' | 'square' | 'outline';
         "type"?: 'button' | 'submit' | 'reset';
     }
@@ -154,6 +155,7 @@ declare namespace LocalJSX {
         "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
     interface IrInput {
+        "containerStyle"?: string;
         "icon"?: string;
         "inputId"?: string;
         "label"?: string;

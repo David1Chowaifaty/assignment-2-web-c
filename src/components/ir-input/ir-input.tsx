@@ -12,6 +12,7 @@ export class IrInput {
   @Prop({ reflect: true }) placeholder: string;
   @Prop({ reflect: true }) value: string;
   @Prop({ reflect: true }) type: string;
+  @Prop({ reflect: true }) containerStyle: string;
   @Prop({ reflect: true }) required: boolean;
   @Event({ bubbles: true, composed: true }) ontextchange: EventEmitter<string>;
   @State() visible: boolean = false;
@@ -21,11 +22,14 @@ export class IrInput {
     this.value = event.target.value;
     this.ontextchange.emit(this.value);
   }
-
+  applyContainerStyle() {
+    const baseClass = this.label !== '' ? 'input-group input-group-sm' : 'form-group position-relative has-icon-left';
+    return `${baseClass} ${this.containerStyle}`;
+  }
   render() {
     return (
       <Host>
-        <fieldset class={this.label !== '' ? 'input-group input-group-sm mb-3' : 'form-group position-relative has-icon-left mb-0'}>
+        <fieldset class={this.applyContainerStyle()}>
           {this.label && (
             <div class="input-group-prepend">
               <span class="input-group-text" id={this.inputId}>
