@@ -28,17 +28,17 @@ export namespace Components {
         "labelStyle": string;
     }
     interface IrInput {
-        "containerStyle": string;
-        "divicon": string;
         "icon": string;
         "inputId": string;
-        "inputStyle": string;
-        "inputcontainer": string;
         "label": string;
-        "labelStyle": string;
         "placeholder": string;
+        "required": boolean;
         "type": string;
         "value": string;
+    }
+    interface IrLink {
+        "linkDestination": string;
+        "linkTitle": string;
     }
     interface IrLogin {
     }
@@ -108,6 +108,12 @@ declare global {
         prototype: HTMLIrInputElement;
         new (): HTMLIrInputElement;
     };
+    interface HTMLIrLinkElement extends Components.IrLink, HTMLStencilElement {
+    }
+    var HTMLIrLinkElement: {
+        prototype: HTMLIrLinkElement;
+        new (): HTMLIrLinkElement;
+    };
     interface HTMLIrLoginElement extends Components.IrLogin, HTMLStencilElement {
     }
     var HTMLIrLoginElement: {
@@ -130,6 +136,7 @@ declare global {
         "ir-button": HTMLIrButtonElement;
         "ir-checkbox": HTMLIrCheckboxElement;
         "ir-input": HTMLIrInputElement;
+        "ir-link": HTMLIrLinkElement;
         "ir-login": HTMLIrLoginElement;
         "ir-select": HTMLIrSelectElement;
         "ir-switch": HTMLIrSwitchElement;
@@ -158,18 +165,18 @@ declare namespace LocalJSX {
         "onOncheckchange"?: (event: IrCheckboxCustomEvent<boolean>) => void;
     }
     interface IrInput {
-        "containerStyle"?: string;
-        "divicon"?: string;
         "icon"?: string;
         "inputId"?: string;
-        "inputStyle"?: string;
-        "inputcontainer"?: string;
         "label"?: string;
-        "labelStyle"?: string;
         "onOntextchange"?: (event: IrInputCustomEvent<string>) => void;
         "placeholder"?: string;
+        "required"?: boolean;
         "type"?: string;
         "value"?: string;
+    }
+    interface IrLink {
+        "linkDestination"?: string;
+        "linkTitle"?: string;
     }
     interface IrLogin {
     }
@@ -205,6 +212,7 @@ declare namespace LocalJSX {
         "ir-button": IrButton;
         "ir-checkbox": IrCheckbox;
         "ir-input": IrInput;
+        "ir-link": IrLink;
         "ir-login": IrLogin;
         "ir-select": IrSelect;
         "ir-switch": IrSwitch;
@@ -217,6 +225,7 @@ declare module "@stencil/core" {
             "ir-button": LocalJSX.IrButton & JSXBase.HTMLAttributes<HTMLIrButtonElement>;
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
             "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
+            "ir-link": LocalJSX.IrLink & JSXBase.HTMLAttributes<HTMLIrLinkElement>;
             "ir-login": LocalJSX.IrLogin & JSXBase.HTMLAttributes<HTMLIrLoginElement>;
             "ir-select": LocalJSX.IrSelect & JSXBase.HTMLAttributes<HTMLIrSelectElement>;
             "ir-switch": LocalJSX.IrSwitch & JSXBase.HTMLAttributes<HTMLIrSwitchElement>;
