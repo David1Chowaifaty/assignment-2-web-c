@@ -61,8 +61,8 @@ export class IrSelect {
 
   private handleSelect = (event: any): void => {
     const selectedValue = event.params.data.id;
-    this.onselectchange.emit(selectedValue);
     this.selectedItem = selectedValue;
+    this.onselectchange.emit(selectedValue);
   };
 
   render() {
