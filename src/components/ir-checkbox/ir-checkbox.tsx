@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
-
+import 'jquery';
 @Component({
   tag: 'ir-checkbox',
   styleUrl: 'ir-checkbox.css',

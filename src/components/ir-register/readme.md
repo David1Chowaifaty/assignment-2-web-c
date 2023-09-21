@@ -5,7 +5,19 @@
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event              | Description | Type                     |
+| ------------------ | ----------- | ------------------------ |
+| `linkLoginClicked` |             | `CustomEvent<any>`       |
+| `registerClicked`  |             | `CustomEvent<IRegister>` |
+
+
 ## Dependencies
+
+### Used by
+
+ - [ir-login](../ir-login)
 
 ### Depends on
 
@@ -21,6 +33,7 @@ graph TD;
   ir-register --> ir-input
   ir-register --> ir-button
   ir-register --> ir-link
+  ir-login --> ir-register
   style ir-register fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

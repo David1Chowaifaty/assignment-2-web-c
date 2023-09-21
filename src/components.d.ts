@@ -6,8 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ILogin } from "./model/Login";
+import { IRegister } from "./model/Register";
 import { DataFormat, GroupedDataFormat } from "select2";
 export { ILogin } from "./model/Login";
+export { IRegister } from "./model/Register";
 export { DataFormat, GroupedDataFormat } from "select2";
 export namespace Components {
     interface IrButton {
@@ -100,6 +102,10 @@ export interface IrInputCustomEvent<T> extends CustomEvent<T> {
 export interface IrLoginCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIrLoginElement;
+}
+export interface IrRegisterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIrRegisterElement;
 }
 export interface IrSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -231,8 +237,11 @@ declare namespace LocalJSX {
     }
     interface IrLogin {
         "onLoginClicked"?: (event: IrLoginCustomEvent<ILogin>) => void;
+        "onLoginRegisterClicked"?: (event: IrLoginCustomEvent<IRegister>) => void;
     }
     interface IrRegister {
+        "onLinkLoginClicked"?: (event: IrRegisterCustomEvent<any>) => void;
+        "onRegisterClicked"?: (event: IrRegisterCustomEvent<IRegister>) => void;
     }
     interface IrSelect {
         "data"?: string | DataFormat[] | GroupedDataFormat[];
