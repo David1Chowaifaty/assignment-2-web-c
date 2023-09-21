@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, Host, Listen, State, h } from '@stencil/core';
 import { ILogin } from '../../model/Login';
 import { IRegister } from '../../model/Register';
-import 'jquery';
+
 @Component({
   tag: 'ir-login',
 })
@@ -97,17 +97,10 @@ export class IrLogin {
                             <ir-input ref={el => (this.usernameRef = el)} type="text" icon="la la-user" placeholder="Your Username" required container-style="mb-0" />
                             <ir-input ref={el => (this.passwordRef = el)} type="password" icon="la la-key" placeholder="Enter Password" required />
                             <div class="form-group row">
-                              {/* <ir-checkbox
-                                ref={el => (this.checkboxRef = el)}
-                                class="col-sm-6 col-12 text-center text-sm-left"
-                                label=" Remember Me"
-                                input-id="remember-me"
-                                checkbox-style="chk-remember"
-                              /> */}
-                              <fieldset>
-                                <input type="checkbox" id="remember-me" class="chk-remember" />
-                                <label htmlFor="remember-me"> Remember Me</label>
-                              </fieldset>
+                              <div class="col-sm-6 col-12 text-center text-sm-left">
+                                <ir-checkbox ref={el => (this.checkboxRef = el)} label="Remember Me" input-id="remember-me" checkbox-style="chk-remember" />
+                              </div>
+
                               <div class="col-sm-6 col-12 text-center text-sm-right">
                                 <ir-link link-title="Forgot Password?" link-destination="#" />
                               </div>

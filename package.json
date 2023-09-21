@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@stencil/core": "^4.0.0",
+    "@types/icheck": "^1.0.1",
     "@types/jquery": "^3.5.18",
     "@types/select2": "^4.0.58",
     "@types/uuid": "^9.0.4",

@@ -8,6 +8,9 @@ dependencies:
   '@stencil/core':
     specifier: ^4.0.0
     version: 4.2.0
+  '@types/icheck':
+    specifier: ^1.0.1
+    version: 1.0.1
   '@types/jquery':
     specifier: ^3.5.18
     version: 3.5.18
@@ -690,6 +693,12 @@ packages:
     dependencies:
       '@types/node': 16.18.50
     dev: true
+
+  /@types/icheck@1.0.1:
+    resolution: {integrity: sha512-BoyqV98VB3W6aFNdW82D82j23+J9kGeaViIC9ybl0sguBNRSqJNMlM+aAjVlttJM+Luj8kTyO78xTmpWRONlgg==}
+    dependencies:
+      '@types/jquery': 3.5.18
+    dev: false
 
   /@types/istanbul-lib-coverage@2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}

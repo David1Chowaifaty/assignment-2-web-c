@@ -19,6 +19,7 @@
 
 - [ir-card-header](../ir-card-header)
 - [ir-input](../ir-input)
+- [ir-checkbox](../ir-checkbox)
 - [ir-link](../ir-link)
 - [ir-button](../ir-button)
 - [ir-sidebar](../ir-sidebar)
@@ -29,6 +30,7 @@
 graph TD;
   ir-login --> ir-card-header
   ir-login --> ir-input
+  ir-login --> ir-checkbox
   ir-login --> ir-link
   ir-login --> ir-button
   ir-login --> ir-sidebar

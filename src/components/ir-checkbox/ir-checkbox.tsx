@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
-import 'jquery';
+
 @Component({
   tag: 'ir-checkbox',
   styleUrl: 'ir-checkbox.css',
@@ -16,8 +16,18 @@ export class IrCheckbox {
   @Event({ bubbles: true, composed: true }) oncheckchange: EventEmitter<boolean>;
 
   @State() labelShown: boolean = false;
+  checkboxRef: HTMLElement;
   componentWillLoad() {
     this.setLabelShown();
+  }
+  componentDidLoad() {
+    $(this.checkboxRef).iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+    });
+    $(this.checkboxRef).on('ifChanged', (event: any) => {
+      this.handleChange(event);
+    });
   }
   @Watch('label')
   onLabelChange() {
@@ -39,7 +49,15 @@ export class IrCheckbox {
   render() {
     return (
       <Host>
-        <input type="checkbox" disabled={this.disabled} onChange={this.handleChange.bind(this)} checked={this.checked} class={this.checkboxStyle} id={this.inputId} />
+        <input
+          ref={el => (this.checkboxRef = el)}
+          type="checkbox"
+          disabled={this.disabled}
+          onChange={this.handleChange.bind(this)}
+          checked={this.checked}
+          class={this.checkboxStyle}
+          id={this.inputId}
+        />
         {this.labelShown && (
           <label class={this.labelStyle} htmlFor={this.inputId}>
             {this.label}
