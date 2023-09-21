@@ -12,7 +12,7 @@
 | `containerStyle` | `container-style` |             | `string`  | `undefined` |
 | `icon`           | `icon`            |             | `string`  | `undefined` |
 | `inputId`        | `input-id`        |             | `string`  | `undefined` |
-| `label`          | `label`           |             | `string`  | `undefined` |
+| `label`          | `label`           |             | `string`  | `''`        |
 | `placeholder`    | `placeholder`     |             | `string`  | `undefined` |
 | `required`       | `required`        |             | `boolean` | `undefined` |
 | `type`           | `type`            |             | `string`  | `undefined` |

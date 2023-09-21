@@ -6,7 +6,7 @@ import { Component, Host, Prop, h, Event, EventEmitter, State } from '@stencil/c
   shadow: false,
 })
 export class IrInput {
-  @Prop({ reflect: true }) label: string;
+  @Prop({ reflect: true }) label: string = '';
   @Prop({ reflect: true }) icon: string;
   @Prop({ reflect: true }) inputId: string;
   @Prop({ reflect: true }) placeholder: string;
