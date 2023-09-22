@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property    | Attribute    | Description | Type     | Default     |
+| ----------- | ------------ | ----------- | -------- | ----------- |
+| `imagePath` | `image-path` |             | `string` | `undefined` |
+
+
 ## Events
 
 | Event                  | Description | Type                     |

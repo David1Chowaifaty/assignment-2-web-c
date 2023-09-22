@@ -32,6 +32,7 @@
     "@types/select2": "^4.0.58",
     "@types/uuid": "^9.0.4",
     "bootstrap-switch": "^3.4.0",
+    "icheck": "^1.0.2",
     "jquery": "^3.7.1",
     "select2": "4.1.0-rc.0",
     "uuid": "^9.0.1"

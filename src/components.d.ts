@@ -51,8 +51,10 @@ export namespace Components {
         "linkTitle": string;
     }
     interface IrLogin {
+        "imagePath": string;
     }
     interface IrRegister {
+        "imagePath": string;
     }
     interface IrSelect {
         "data": string | DataFormat[] | GroupedDataFormat[];
@@ -236,10 +238,12 @@ declare namespace LocalJSX {
         "linkTitle"?: string;
     }
     interface IrLogin {
+        "imagePath"?: string;
         "onLoginClicked"?: (event: IrLoginCustomEvent<ILogin>) => void;
         "onLoginRegisterClicked"?: (event: IrLoginCustomEvent<IRegister>) => void;
     }
     interface IrRegister {
+        "imagePath"?: string;
         "onLinkLoginClicked"?: (event: IrRegisterCustomEvent<any>) => void;
         "onRegisterClicked"?: (event: IrRegisterCustomEvent<IRegister>) => void;
     }

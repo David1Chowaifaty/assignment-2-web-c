@@ -1,11 +1,11 @@
-import { Component, Event, EventEmitter, Host, Listen, State, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Host, Listen, Prop, State, h } from '@stencil/core';
 import { ILogin } from '../../model/Login';
 import { IRegister } from '../../model/Register';
-
 @Component({
   tag: 'ir-login',
 })
 export class IrLogin {
+  @Prop({ reflect: true }) imagePath: string;
   @State() username: string;
   @State() password: string;
   @State() isChecked: boolean = false;
@@ -85,12 +85,7 @@ export class IrLogin {
                 <div class="col-12 d-flex align-items-center justify-content-center">
                   <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
                     <div class="card border-grey border-lighten-3 m-0">
-                      <ir-card-header
-                        class="card-header border-0"
-                        image-source="../../../app-assets/images/logo/logo-dark.png"
-                        image-alt-text="branding logo"
-                        header-title="Login with Modern"
-                      />
+                      <ir-card-header class="card-header border-0" image-source={this.imagePath} image-alt-text="branding logo" header-title="Login with Modern" />
                       <div class="card-content">
                         <div class="card-body">
                           <form ref={el => (this.formRef = el)} class="form-horizontal form-simple" novalidate onSubmit={this.handleFormSubmit.bind(this)}>
@@ -121,7 +116,7 @@ export class IrLogin {
                         </div>
                       </div>
                       <ir-sidebar ref={el => (this.sidebarRef = el)} open={this.isSidebarOpened}>
-                        <ir-register></ir-register>
+                        <ir-register image-path={this.imagePath}></ir-register>
                       </ir-sidebar>
                     </div>
                   </div>

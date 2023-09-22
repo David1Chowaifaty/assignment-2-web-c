@@ -1,10 +1,11 @@
-import { Component, Event, EventEmitter, State, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, h } from '@stencil/core';
 import { IRegister } from '../../model/Register';
 
 @Component({
   tag: 'ir-register',
 })
 export class IrRegister {
+  @Prop({ reflect: true }) imagePath: string;
   @State() username: string;
   @State() password: string;
   @State() email: string;
@@ -57,7 +58,7 @@ export class IrRegister {
   render() {
     return (
       <section class="card">
-        <ir-card-header class="card-header border-0" image-source="../../../app-assets/images/logo/logo-dark.png" image-alt-text="branding logo" header-title="Create Account" />
+        <ir-card-header class="card-header border-0" image-source={this.imagePath} image-alt-text="branding logo" header-title="Create Account" />
         <div class="card-content">
           <div class="card-body">
             <form ref={el => (this.formRef = el)} class="form-horizontal form-simple" novalidate onSubmit={this.handleFormSubmit.bind(this)}>
