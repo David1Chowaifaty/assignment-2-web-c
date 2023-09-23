@@ -1,19 +1,13 @@
 import { Component, Host, Prop, State, Watch, h } from '@stencil/core';
 import { IrStyles } from '../../model/IrStyles';
+import { internalStyles } from '../../constants/styles';
 
 @Component({
   tag: 'ir-ir',
 })
 export class IrIr {
   @Prop({ reflect: true }) hrefs: string = '';
-  @State() arrHrefs: IrStyles[] = [
-    {
-      script: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',
-      href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
-    },
-    { href: '/assets/select2.min.css' },
-  ];
-
+  @State() arrHrefs: IrStyles[] = internalStyles;
   componentWillLoad() {
     this.parseRefs();
   }
