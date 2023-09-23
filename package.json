@@ -35,6 +35,8 @@
     "bootstrap-switch": "^3.4.0",
     "icheck": "^1.0.2",
     "jquery": "^3.7.1",
+    "rollup": "^3.29.2",
+    "rollup-plugin-copy": "^3.5.0",
     "select2": "4.1.0-rc.0",
     "uuid": "^9.0.1"
   },

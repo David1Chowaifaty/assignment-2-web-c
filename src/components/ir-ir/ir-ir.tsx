@@ -1,13 +1,13 @@
 import { Component, Host, Prop, State, Watch, h } from '@stencil/core';
 import { IrStyles } from '../../model/IrStyles';
-import { internalStyles } from '../../constants/styles';
+import { onlineStyles } from '../../constants/styles';
 
 @Component({
   tag: 'ir-ir',
 })
 export class IrIr {
   @Prop({ reflect: true }) hrefs: string = '';
-  @State() arrHrefs: IrStyles[] = internalStyles;
+  @State() arrHrefs: IrStyles[] = onlineStyles;
   componentWillLoad() {
     this.parseRefs();
   }
