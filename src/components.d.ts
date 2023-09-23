@@ -46,6 +46,9 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IrIr {
+        "hrefs": string;
+    }
     interface IrLink {
         "linkDestination": string;
         "linkTitle": string;
@@ -146,6 +149,12 @@ declare global {
         prototype: HTMLIrInputElement;
         new (): HTMLIrInputElement;
     };
+    interface HTMLIrIrElement extends Components.IrIr, HTMLStencilElement {
+    }
+    var HTMLIrIrElement: {
+        prototype: HTMLIrIrElement;
+        new (): HTMLIrIrElement;
+    };
     interface HTMLIrLinkElement extends Components.IrLink, HTMLStencilElement {
     }
     var HTMLIrLinkElement: {
@@ -187,6 +196,7 @@ declare global {
         "ir-card-header": HTMLIrCardHeaderElement;
         "ir-checkbox": HTMLIrCheckboxElement;
         "ir-input": HTMLIrInputElement;
+        "ir-ir": HTMLIrIrElement;
         "ir-link": HTMLIrLinkElement;
         "ir-login": HTMLIrLoginElement;
         "ir-register": HTMLIrRegisterElement;
@@ -232,6 +242,9 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "type"?: string;
         "value"?: string;
+    }
+    interface IrIr {
+        "hrefs"?: string;
     }
     interface IrLink {
         "linkDestination"?: string;
@@ -286,6 +299,7 @@ declare namespace LocalJSX {
         "ir-card-header": IrCardHeader;
         "ir-checkbox": IrCheckbox;
         "ir-input": IrInput;
+        "ir-ir": IrIr;
         "ir-link": IrLink;
         "ir-login": IrLogin;
         "ir-register": IrRegister;
@@ -302,6 +316,7 @@ declare module "@stencil/core" {
             "ir-card-header": LocalJSX.IrCardHeader & JSXBase.HTMLAttributes<HTMLIrCardHeaderElement>;
             "ir-checkbox": LocalJSX.IrCheckbox & JSXBase.HTMLAttributes<HTMLIrCheckboxElement>;
             "ir-input": LocalJSX.IrInput & JSXBase.HTMLAttributes<HTMLIrInputElement>;
+            "ir-ir": LocalJSX.IrIr & JSXBase.HTMLAttributes<HTMLIrIrElement>;
             "ir-link": LocalJSX.IrLink & JSXBase.HTMLAttributes<HTMLIrLinkElement>;
             "ir-login": LocalJSX.IrLogin & JSXBase.HTMLAttributes<HTMLIrLoginElement>;
             "ir-register": LocalJSX.IrRegister & JSXBase.HTMLAttributes<HTMLIrRegisterElement>;
